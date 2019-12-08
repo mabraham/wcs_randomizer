@@ -22,10 +22,9 @@ urlpatterns = [
 
 # Use include() to add paths from the catalog application 
 from django.urls import include
-from django.urls import path
 
-urlpatterns += [
-    path('randomizer/', include('randomizer.urls')),
+urlpatterns = [
+     path('randomizer/', include('randomizer.urls')),
 ]
 
 #Add URL maps to redirect the base URL to our application
