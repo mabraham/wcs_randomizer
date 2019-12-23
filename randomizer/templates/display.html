@@ -5,8 +5,9 @@
 <!--
         <h1>{{title}}</h1>
 -->
-<input id="display" />
-
+ <div class="display">
+   <input class="header dark XXL" id="animation_demo" />
+ </div>
 <script language="JavaScript">
   var options = {
   width: 6,             // number of digits
@@ -25,7 +26,6 @@
   on_anim_start: null,  // Callback for start of animation
   on_anim_end: null     // Callback for end of animation
   };
-  $('#display').flapper(options).val(12345).change();
+  $('#animation_demo').flapper(options).val(12345).change();
 </script>
-
 {% endblock %}
