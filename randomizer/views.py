@@ -6,7 +6,7 @@ class DisplayView(View):
 #    template_name = "index.html"
 
     def get(self, request, *args, **kwargs):
-        context = {'title': 'Yeah'}
+        context = {'title': 'All-skate randomizer'}
         return render(request, 'display.html', context)
 
 class MCView(View):

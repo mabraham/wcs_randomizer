@@ -2,11 +2,30 @@
 
 {% block content %}
 
+<!--
         <h1>{{title}}</h1>
+-->
 <input id="display" />
 
 <script language="JavaScript">
-    $('#display').flapper(options).val(12345).change();
-<script>
+  var options = {
+  width: 6,             // number of digits
+  format: null,         // options for jquery.numberformatter, if loaded
+  align: 'right',       // aligns values to the left or right of display
+  padding: '&nbsp;',    // value to use for padding
+  chars: null,          // array of characters that Flapper can display
+  chars_preset: 'num',  // 'num', 'hexnum', 'alpha' or 'alphanum'
+  timing: 250,          // the maximum timing for digit animation
+  min_timing: 10,       // the minimum timing for digit animation
+  threshhold: 100,      // the point at which Flapper will switch from
+                        // simple to detailed animations
+  transform: true,      // Flapper automatically detects the jquery.transform
+                        // plugin. Set this to false if you want to force
+                        // transform to off
+  on_anim_start: null,  // Callback for start of animation
+  on_anim_end: null     // Callback for end of animation
+  };
+  $('#display').flapper(options).val(12345).change();
+</script>
 
 {% endblock %}
