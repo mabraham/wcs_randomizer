@@ -6,5 +6,12 @@ class DisplayView(View):
 #    template_name = "index.html"
 
     def get(self, request, *args, **kwargs):
-#        return HttpResponse('Hello, World!')
-        return render(request, 'index.html')
+        context = {'title': 'Yeah'}
+        return render(request, 'display.html', context)
+
+class MCView(View):
+#    template_name = "index.html"
+
+    def get(self, request, *args, **kwargs):
+#        context = {'title': 'Display'}
+        return render(request, 'mc.html')
