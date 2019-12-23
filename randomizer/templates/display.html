@@ -6,18 +6,19 @@
         <h1>{{title}}</h1>
 -->
  <div class="display">
-   <input class="header dark XXL" id="animation_demo" />
+   <input class="header dark M" id="animation_demo" />
  </div>
 <script language="JavaScript">
+  var demo_chars = ['9','8','7','6','5','4','3','2','1','0','_'];
   var options = {
-  width: 6,             // number of digits
+  width: 1,             // number of digits
   format: null,         // options for jquery.numberformatter, if loaded
   align: 'right',       // aligns values to the left or right of display
   padding: '&nbsp;',    // value to use for padding
-  chars: null,          // array of characters that Flapper can display
+  chars: demo_chars,    // array of characters that Flapper can display
   chars_preset: 'num',  // 'num', 'hexnum', 'alpha' or 'alphanum'
   timing: 250,          // the maximum timing for digit animation
-  min_timing: 10,       // the minimum timing for digit animation
+  min_timing: 100,      // the minimum timing for digit animation
   threshhold: 100,      // the point at which Flapper will switch from
                         // simple to detailed animations
   transform: true,      // Flapper automatically detects the jquery.transform
@@ -26,6 +27,6 @@
   on_anim_start: null,  // Callback for start of animation
   on_anim_end: null     // Callback for end of animation
   };
-  $('#animation_demo').flapper(options).val(12345).change();
+  $('#animation_demo').flapper(options).val(3).change();
 </script>
 {% endblock %}
