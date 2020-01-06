@@ -2,20 +2,33 @@
 
 {% block content %}
 
-<!--
-        <h1>{{title}}</h1>
--->
   {% load static %}
+  <style>
+    body { 
+    background: url("/static/images/sweden_westie_gala.jpg") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    }
+    .display {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    }
+  </style>
   <script src="{% static "js/transform/dist/jquery.transform-0.9.3.min.js" %}"></script>
   <script src="{% static "js/jshashtable-2.1/jshashtable.js" %}"></script>
   <script src="{% static "js/numberformatter/jquery.numberformatter-1.2.3.min.js" %}"></script>
   <script src="{% static "js/jquery.flapper.js" %}"></script>
   <link href="{% static "css/flapper.css" %}" type="text/css" rel="stylesheet" />
 
-  <!--<img src="{% static "images/sweden_westie_gala.jpg" %}" alt="Smiley face" height="42" width="42">-->
-<div class="display">
-   <input class="header dark XXL" id="animation_demo" />
- </div>
+  <div class="display">
+   <input class="header dark X5L" id="animation_demo" data-js="the_flapper"/>
+  </div>
+
 <script language="JavaScript">
   var demo_chars = ['9','8','7','6','5','4','3','2','1','0','_'];
   var options = {
@@ -35,6 +48,18 @@
   on_anim_start: null,  // Callback for start of animation
   on_anim_end: null     // Callback for end of animation
   };
-  $('#animation_demo').flapper(options).val(3).change();
+  $('#animation_demo').flapper(options).val(' ').change();
+
+(function (window) {
+  const CHANNEL_NAME = 'all-skate-random';
+  const channel = new window.BroadcastChannel(CHANNEL_NAME);
+  
+  const output = document.getElementById("animation_demo");
+
+  channel.addEventListener('message', function(event) {
+    console.log(`Received message, "${event.data}", on channel, "${CHANNEL_NAME}"`);
+    $(output).val(event.data).change();
+  });
+})(window);
 </script>
 {% endblock %}

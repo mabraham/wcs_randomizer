@@ -1,6 +1,54 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-  <button>Reset</button>
-  <button>Randomize</button>
+
+<style>
+  button {
+  display: block;
+  margin: 30px;
+  padding: 7px 35px;
+  font: 300 150% langdon;
+  background: transparent;
+  border: 3px solid black;
+  cursor: pointer;
+}
+</style
+  <div class="display">
+  <button type="button" id="reset">
+    Reset
+  </button>
+</div>
+<div class="display">
+  <button type="button" id="randomize">
+    Randomize
+  </button>
+</div>
+
+<script language="JavaScript">
+document.getElementById("reset").addEventListener("click", sendAllSkateReset);
+document.getElementById("randomize").addEventListener("click", sendAllSkateRandom);
+
+function sendAllSkateReset() {
+  const CHANNEL_NAME = 'all-skate-random';
+  const channel = new window.BroadcastChannel(CHANNEL_NAME);
+
+  console.log(`Posting reset message to channel, "${CHANNEL_NAME}"`);
+  channel.postMessage(' ');
+}
+function sendAllSkateRandom() {
+  const CHANNEL_NAME = 'all-skate-random';
+  const channel = new window.BroadcastChannel(CHANNEL_NAME);
+
+  console.log(`Posting reset message to channel, "${CHANNEL_NAME}"`);
+  channel.postMessage(' ');
+
+  const maxRotation = 5;
+  const message = Math.floor(Math.random() * maxRotation) + 1;
+  console.log(`Posting message, "${message}", to channel, "${CHANNEL_NAME}"`);
+
+  // Use enough delay that we're likely to trigger a new Flapper change event
+  setTimeout(function(){ channel.postMessage(message); }, 500);
+}
+</script>
+
 {% endblock %}

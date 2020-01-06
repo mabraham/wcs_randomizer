@@ -220,6 +220,8 @@
             this.$back_top.show();
             this.$front_bottom.transform({ scaleY: 0.0 });
             this.$front_top.transform({ scaleY: 1.0 }).stop().show().animate({ scaleY: 0.0 }, speed1, 'swing', function(){
+                // Next line inserted by Mark to work with transparency
+                _this.$back_bottom.hide().transform({ scaleY: 1.0 });
                 _this.$front_bottom.stop().show().animate({ scaleY: 1.0 }, speed2, 'linear');
                 _this.$front_top.hide().transform({ scaleY: 1.0 });
             });

@@ -36,5 +36,14 @@ urlpatterns += [
 # Use static() to add url mapping to serve static files during development (only)
 from django.conf import settings
 from django.conf.urls.static import static
+# Three lines of stuff from
+# https://stackoverflow.com/questions/7013735/turn-off-caching-of-static-files-in-django-development-server
+from django.contrib.staticfiles.views import serve
+from django.views.decorators.cache import never_cache
+from . import settings
 
-urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+#urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+if settings.DEBUG:
+
+    urlpatterns += static(settings.STATIC_URL, view=never_cache(serve))
