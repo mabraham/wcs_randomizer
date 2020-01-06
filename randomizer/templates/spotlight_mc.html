@@ -39,18 +39,21 @@ function sendSpotlightClear() {
   const channel = new window.BroadcastChannel(CHANNEL_NAME);
 
   console.log(`Posting clear message to channel, "${CHANNEL_NAME}"`);
-  channel.postMessage(' ');
+  channel.postMessage({name: '', bib_number: '   '});
 }
+
 function sendSpotlightRandom() {
   const CHANNEL_NAME = 'spotlight-random';
   const channel = new window.BroadcastChannel(CHANNEL_NAME);
 
   console.log(`Posting clear message to channel, "${CHANNEL_NAME}"`);
-  channel.postMessage(' ');
+ // channel.postMessage({name: '', bib_number: '   '});
 
-  // Use enough delay that we're likely to trigger a new Flapper change event
+// Use enough delay that we're likely to trigger a new Flapper change event
+// TODO remove this delay now it's not needed
   setTimeout(function(){ 
   $.get( "/randomizer/spotlight_dancer", function( data ) {
+    console.log(`Posting JSON message to channel, "${CHANNEL_NAME}" containing "${data}"`);
     channel.postMessage(data);
   })}, 500);
 }

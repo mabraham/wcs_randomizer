@@ -5,7 +5,7 @@
   {% load static %}
   <style>
     body { 
-    background: url("/static/images/sweden_westie_gala.jpg") no-repeat center center fixed; 
+    background: url("/static/images/sweden_westie_gala_side_diamonds_bottom_diamonds.jpg") no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -14,7 +14,7 @@
     .display {
     position: absolute;
     left: 0;
-    top: 55%;
+    top: 42%;
     width: 100%;
     text-align: center;
     }
@@ -26,7 +26,7 @@
   <link href="{% static "css/flapper.css" %}" type="text/css" rel="stylesheet" />
 
   <div class="display">
-   <input class="header dark X5L" id="animation_demo" data-js="the_flapper"/>
+   <input class="header dark X5L" id="flapper_animation" data-js="the_flapper"/>
   </div>
 
 <script language="JavaScript">
@@ -48,13 +48,13 @@
   on_anim_start: null,  // Callback for start of animation
   on_anim_end: null     // Callback for end of animation
   };
-  $('#animation_demo').flapper(options).val(' ').change();
+  $('#flapper_animation').flapper(options).val(' ').change();
 
 (function (window) {
   const CHANNEL_NAME = 'all-skate-random';
   const channel = new window.BroadcastChannel(CHANNEL_NAME);
   
-  const output = document.getElementById("animation_demo");
+  const output = document.getElementById("flapper_animation");
 
   channel.addEventListener('message', function(event) {
     console.log(`Received message, "${event.data}", on channel, "${CHANNEL_NAME}"`);
