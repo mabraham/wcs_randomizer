@@ -15,7 +15,7 @@
 </style
   <div class="display">
   <button type="button" id="clear">
-    Clear all-skate display
+    Clear spotlight display
   </button>
 </div>
 <div class="display">
@@ -23,32 +23,43 @@
     Choose random dancer
   </button>
 </div>
+<div class="display">
+  <button type="button" id="reset">
+    Let all dancers dance again
+  </button>
+</div>
 
 <script language="JavaScript">
-document.getElementById("clear").addEventListener("click", sendAllSkateClear);
-document.getElementById("randomize").addEventListener("click", sendAllSkateRandom);
+document.getElementById("clear").addEventListener("click", sendSpotlightClear);
+document.getElementById("randomize").addEventListener("click", sendSpotlightRandom);
+document.getElementById("reset").addEventListener("click", sendSpotlightReset);
 
-function sendAllSkateClear() {
-  const CHANNEL_NAME = 'all-skate-random';
+function sendSpotlightClear() {
+  const CHANNEL_NAME = 'spotlight-random';
   const channel = new window.BroadcastChannel(CHANNEL_NAME);
 
   console.log(`Posting clear message to channel, "${CHANNEL_NAME}"`);
   channel.postMessage(' ');
 }
-function sendAllSkateRandom() {
-  const CHANNEL_NAME = 'all-skate-random';
+function sendSpotlightRandom() {
+  const CHANNEL_NAME = 'spotlight-random';
   const channel = new window.BroadcastChannel(CHANNEL_NAME);
 
   console.log(`Posting clear message to channel, "${CHANNEL_NAME}"`);
   channel.postMessage(' ');
-
-  const maxRotation = 5;
-  const message = Math.floor(Math.random() * maxRotation) + 1;
-  console.log(`Posting message, "${message}", to channel, "${CHANNEL_NAME}"`);
 
   // Use enough delay that we're likely to trigger a new Flapper change event
-  setTimeout(function(){ channel.postMessage(message); }, 500);
+  setTimeout(function(){ 
+  $.get( "/randomizer/spotlight_dancer", function( data ) {
+    channel.postMessage(data);
+  })}, 500);
 }
+
+function sendSpotlightReset() {
+  $.get( "/randomizer/spotlight_reset/");
+  console.log("Sending reset to db");
+}
+
 </script>
 
 {% endblock %}

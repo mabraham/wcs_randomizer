@@ -32,7 +32,7 @@
 <script language="JavaScript">
   var demo_chars = ['9','8','7','6','5','4','3','2','1','0','_'];
   var options = {
-  width: 1,             // number of digits
+  width: 3,             // number of digits
   format: null,         // options for jquery.numberformatter, if loaded
   align: 'right',       // aligns values to the left or right of display
   padding: '&nbsp;',    // value to use for padding
@@ -51,7 +51,7 @@
   $('#animation_demo').flapper(options).val(' ').change();
 
 (function (window) {
-  const CHANNEL_NAME = 'all-skate-random';
+  const CHANNEL_NAME = 'spotlight-random';
   const channel = new window.BroadcastChannel(CHANNEL_NAME);
   
   const output = document.getElementById("animation_demo");
