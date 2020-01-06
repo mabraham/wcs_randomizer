@@ -65,13 +65,9 @@
 
     spotlight_dancer_name.textContent = "";
     $(output).val(event.data.bib_number).change();
-  /*
-    spotlight_dancer_name.textContent = event.data.name;
-  */
-  setTimeout(function(){ 
-    spotlight_dancer_name.textContent = event.data.name;
-  }, 1000);
-
+    setTimeout(function(){ 
+      spotlight_dancer_name.textContent = event.data.name;
+    }, 2000);
   });
 })(window);
 </script>
