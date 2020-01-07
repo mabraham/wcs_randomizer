@@ -3,30 +3,8 @@
 {% block content %}
 
   {% load static %}
-  <style>
-    body { 
-    background: url("/static/images/sweden_westie_gala_side_diamonds.jpg") no-repeat center center fixed; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    }
-    .display {
-    position: absolute;
-    left: 0;
-    top: 42%;
-    width: 100%;
-    text-align: center;
-    }
-  </style>
-  <script src="{% static "js/transform/dist/jquery.transform-0.9.3.min.js" %}"></script>
-  <script src="{% static "js/jshashtable-2.1/jshashtable.js" %}"></script>
-  <script src="{% static "js/numberformatter/jquery.numberformatter-1.2.3.min.js" %}"></script>
-  <script src="{% static "js/jquery.flapper.js" %}"></script>
-  <link href="{% static "css/flapper.css" %}" type="text/css" rel="stylesheet" />
-
   <div class="display">
-   <input class="header dark X5L" id="flapper_animation" data-js="the_flapper"/>
+   <input class="header dark X5L" id="flapper_animation"/>
   </div>
 
 <script language="JavaScript">

@@ -1,7 +1,7 @@
 from django import views
 from django.urls import path
-from randomizer.views import DisplayView
-from randomizer.views import MCView
+from randomizer.views import AllSkateView
+from randomizer.views import AllSkateMCView
 from randomizer.views import SpotlightView
 from randomizer.views import SpotlightDancerView
 from randomizer.views import SpotlightMCView
@@ -12,8 +12,8 @@ from django.contrib import admin
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('display/', DisplayView.as_view()),
-    path('mc/', MCView.as_view()),
+    path('allskate/', AllSkateView.as_view()),
+    path('allskate_mc/', AllSkateMCView.as_view()),
     path('spotlight/', SpotlightView.as_view()),
     path('spotlight_dancer/', SpotlightDancerView.as_view()),
     path('spotlight_mc/', SpotlightMCView.as_view()),

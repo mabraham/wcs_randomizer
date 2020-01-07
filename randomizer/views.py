@@ -1,33 +1,36 @@
 from django.core import serializers
-from django.shortcuts import render
+from django.forms.models import model_to_dict
 from django.http import HttpResponse
 from django.http import JsonResponse
+from django.shortcuts import render
 from django.views.generic import View
 import json
 import random
 from randomizer.models import SpotlightDancer
 
-class DisplayView(View):
-#    template_name = "index.html"
+class AllSkateView(View):
 
     def get(self, request, *args, **kwargs):
-        context = {'title': 'All-skate randomizer'}
-        return render(request, 'display.html', context)
+        context = {'title': 'All-skate display'}
+        return render(request, 'allskate.html', context)
 
-class MCView(View):
-#    template_name = "index.html"
+class AllSkateMCView(View):
 
     def get(self, request, *args, **kwargs):
-#        context = {'title': 'Display'}
-        return render(request, 'mc.html')
+        context = {'title': 'All-skate MC'}
+        return render(request, 'allskate_mc.html')
 
 class SpotlightView(View):
 
     def get(self, request, *args, **kwargs):
-        context = {'title': 'Spotlight randomizer'}
+        context = {'title': 'Spotlight display'}
         return render(request, 'spotlight.html', context)
 
-from django.forms.models import model_to_dict
+class SpotlightMCView(View):
+
+    def get(self, request, *args, **kwargs):
+        context = {'title': 'Spotlight MC'}
+        return render(request, 'spotlight_mc.html')
 
 class SpotlightDancerView(View):
 
@@ -51,11 +54,6 @@ class SpotlightDancerView(View):
         response = JsonResponse(dict_obj, safe=False)
 
         return response
-
-class SpotlightMCView(View):
-
-    def get(self, request, *args, **kwargs):
-        return render(request, 'spotlight_mc.html')
 
 class SpotlightResetView(View):
 
