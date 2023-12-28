@@ -16,7 +16,7 @@ git clone https://github.com/mabraham/wcs_randomizer.git
 cd wcs_randomizer
 ```
 
-5. Get python dependencies (only the simple web server Django)
+5. Get python dependencies (only the simple web server Django, which will just run locally on your laptop)
 
 ```
 python3 -m pip install -r requirements.txt
@@ -43,6 +43,7 @@ python3 manage.py createsuperuser
 
 Use any name and password you find memorable, but don't use a password whose secrecy you actually care about!
 You don't need to give it a real email address.
+Ignore any warnings.
 
 2. Now the server is configured. You can now run the web server like
 
@@ -77,6 +78,7 @@ You can do all this whenever the finalists are known, and then not touch it agai
 You need to enter all the dancers from the role with the fewest dancers here.
 So if there are 5 leaders and 7 followers, leaders names will be drawn out by followers.
 The dancers from the other role are irrelevant and not entered at all.
+Ignore stuff about users and groups - you'd only want that for running some kind of real web server, and we're just abusing Django to let one Chrome tab control what appears on another.
 
 Click on `+Add`, then enter a bib number and a full name for a dancer.
 Don't click on the "Has danced" box - that will get filled in by the system as the dancers dance.
