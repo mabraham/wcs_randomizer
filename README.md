@@ -1,20 +1,22 @@
 # Installation
 
-1. Install python >= 3.7
+1. Open a command terminal
 
-2. Clone from github e.g.
+2. Install python >= 3.7
+
+3. Clone from github e.g.
 
 ```
 git clone https://github.com/mabraham/wcs_randomizer.git
 ```
 
-3. Change the working directory to that e.g.
+4. Change the working directory to that e.g.
 
 ```
 cd wcs_randomizer
 ```
 
-4. Get python dependencies
+5. Get python dependencies (only the simple web server Django)
 
 ```
 python3 -m pip install -r requirements.txt
@@ -25,6 +27,10 @@ or if that somehow fails because python3 isn't found, try
 ```
 python -m pip install -r requirements.txt
 ```
+
+6. Ensure you are will be using the Chrome browser.
+Back when I wrote this, only Chrome would work.
+Maybe Safari supports this now, but you're on your own there.
 
 # Running
 
@@ -53,18 +59,17 @@ You will see a bunch of stuff including something like
 Starting development server at http://127.0.0.1:8000/
 ```
 
-That link tells a browser to use the local web server we just ran.
+That link tells Chrome to ask the local web server we just ran for content.
 Your link might be different.
 That's fine, use the one you see.
 If you just go to it, then you'll get a page showing an error that there's no content (404).
 That's because I was lazy and didn't build something that I didn't need.
-However, there are three subpages that are relevant, respectively `admin`, `spotlight`, and `spotlight_mc`.
+However, there are three subpages that are relevant, respectively `randomizer/admin`, `randomizer/spotlight`, and `randomizer/spotlight_mc`.
 You will need to open and use all three - read on!
 
-3. Open the admin page at URL like http://127.0.0.1:8000/admin
+3. Open the admin page in Chrome at URL like http://127.0.0.1:8000/randomizer/admin
 
 Make a bookmark so you can find it again easily.
-If it prompts you to make an admin password, do anything that you will remember.
 
 Eventually you'll get to an admin page where you will see a heading "RANDOMIZER" with a sub-heading "Spotlight dancers."
 This is where you get to enter the names of the dancers who will be drawn out, along with their bib number.
@@ -82,14 +87,14 @@ Go ahead and fill in some dancers to experiment with.
 Review all the names and bib numbers.
 If names use non-English characters that will probably work fine, but do test!
 
-4. Now go to the display page at URL like http://127.0.0.1:8000/spotlight
+4. Now go to the display page at URL like http://127.0.0.1:8000/randomizer/spotlight
 
 Make a bookmark so you can find it again easily.
 This tab should go in its own browser window that you are prepared to put on its own desktop, so you can just change desktops to go from Flapper display to the background for other times.
 Check it looks ok.
 You can't do anything on this webpage, it's just the display.
 
-5. Now go to the MC page at URL like http://127.0.0.1:8000/spotlight_mc
+5. Now go to the MC page at URL like http://127.0.0.1:8000/randomizer/spotlight_mc
 
 Make a bookmark so you can find it again easily.
 Here's where things are controlled during the spotlights.
