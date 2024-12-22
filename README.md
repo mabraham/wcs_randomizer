@@ -51,8 +51,9 @@ Ignore any warnings.
 python3 manage.py runserver
 ```
 
-This terminal needs to keep runinng in order to keep the server running.
+This terminal needs to keep running in order to keep the server running.
 If you want to stop the server, kill the terminal, or press Ctrl-C.
+The server remembers its state, so no need to re-enter dancers' names, etc.
 
 You will see a bunch of stuff including something like
 
@@ -92,7 +93,7 @@ If names use non-English characters that will probably work fine, but do test!
 4. Now go to the display page at URL like http://127.0.0.1:8000/randomizer/spotlight
 
 Make a bookmark so you can find it again easily.
-This tab should go in its own browser window that you are prepared to put on its own desktop, so you can just change desktops to go from Flapper display to the background for other times.
+This tab should go in its own browser window that you are prepared to put on its own desktop, maximized without OS window borders.
 Check it looks ok.
 You can't do anything on this webpage, it's just the display.
 
@@ -100,12 +101,14 @@ You can't do anything on this webpage, it's just the display.
 
 Make a bookmark so you can find it again easily.
 Here's where things are controlled during the spotlights.
+You want to have this tab open on a desktop that you aren't going to show.
 
 "Clear spotlight display" removes any currently displayed dancer and bib number.
 If there's none shown, it does nothing.
 You can't undo this, so don't click it randomly!
-It's a good idea to use this to clear the names after the judges have seen the bib number, around when the music starts.
-Or use it after the desktop has switched to whatever display should appear while the dancers are dancing.
+Wait for the judges to have had a chance to see the bib number, which they need for score.
+Clear the names after the judges have seen the bib number, just before when the music starts.
+The idea is that the logo video is the backdrop while they dance, showing up in the web stream.
 
 "Choose random dancer" is used when the MC wants a partner drawn.
 Internally, that sets the "Has danced" flag, which ensures this name will not be drawn again.
@@ -117,8 +120,6 @@ For example, if there are 5 leaders to draw for 7 followers, we want to "Choose 
 The fifth one will be known to everyone after the fourth is drawn, of course.
 After the fifth one, choose "Let all dancers dance again" and now the sixth "Choose random dancer" will be random from all five leaders.
 Finally the last "Choose random dancer" chooses from among the remaining four leaders who already danced one time.
-
-You want to have this tab open on a desktop that you aren't going to show.
 
 # How-tos
 
@@ -132,8 +133,8 @@ The same URLs will continue working once you start a new server.
 (Don't start a second server, however, that will use a different port like 8001 or something.)
 
 To clean up, simply delete that file.
-Then you must reconfigure the webserver (migrate and createsuperuser above) and enter new dancers.
+Then you must reconfigure the webserver (`migrate` and `createsuperuser` above) and enter new dancers.
 
 ## If something goes wrong
 
-Switch to manual drawing!
+Switch to manual drawing! Prepare numbers and a bowl in advance, and put the appropriate numbers in the bowl.
