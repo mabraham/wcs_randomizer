@@ -20,6 +20,14 @@
     url("https://db.onlinewebfonts.com/t/3a58f01dd869ca4ac134dfd2ba8bfaf2.ttf")format("truetype"),
     url("https://db.onlinewebfonts.com/t/3a58f01dd869ca4ac134dfd2ba8bfaf2.svg#Zaio")format("svg");
     }
+    video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: 100%;
+    }
     body { 
     background: url("/static/images/sweden_westie_gala_side_diamonds.jpg") no-repeat center center fixed; 
     -webkit-background-size: cover;
@@ -47,6 +55,9 @@
 
 </head>
 <body>
+  <video autoplay muted loop>
+    <source src="/static/images/SWG NYE Loop.mp4" type="video/mp4"/>
+  </video>
   {% block content %}{% endblock %}
 </body>
 </html>
